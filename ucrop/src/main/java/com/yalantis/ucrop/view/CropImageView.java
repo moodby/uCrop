@@ -267,7 +267,7 @@ public class CropImageView extends TransformImageView {
      * If image doesn't fill the crop bounds it must be translated and scaled properly to fill those.
      * <p/>
      * Therefore this method calculates delta X, Y and scale values and passes them to the
-     * {@link WrapCropBoundsRunnable} which animates image.
+     * WrapCropBoundsRunnable which animates image.
      * Scale value must be calculated only if image won't fill the crop bounds after it's translated to the
      * crop bounds rectangle center. Using temporary variables this method checks this case.
      */
@@ -513,7 +513,7 @@ public class CropImageView extends TransformImageView {
      * This Runnable is used to animate an image so it fills the crop bounds entirely.
      * Given values are interpolated during the animation time.
      * Runnable can be terminated either vie {@link #cancelAllAnimations()} method
-     * or when certain conditions inside {@link WrapCropBoundsRunnable#run()} method are triggered.
+     * or when certain conditions inside run() method are triggered.
      */
     private static class WrapCropBoundsRunnable implements Runnable {
 
