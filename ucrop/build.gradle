@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply from: 'bintray.gradle'
 
 android {
     compileSdkVersion 27
@@ -94,6 +93,8 @@ afterEvaluate {
 }
 
 
+apply from: 'bintray.gradle'
+apply from: 'mavenCustom.gradle'
 // Place it at the end of the file
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

@@ -15,6 +15,7 @@ ext {
 
     publishedGroupId = 'com.github.kolyall'//only this
     artifact = 'ucrop'//should be the same as module name
+    artifactLocal = 'ucrop'//should be the same as module name
     libraryVersion = appVersionName
 
     libraryName = 'ucrop'
