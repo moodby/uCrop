@@ -1,4 +1,5 @@
 # uCrop - Image Cropping Library for Android
+[ ![Download](https://api.bintray.com/packages/nickunuchek/maven/ucrop/images/download.svg) ](https://bintray.com/nickunuchek/maven/ucrop/_latestVersion)
 
 #### This project aims to provide an ultimate and flexible image cropping experience. Made in [Yalantis](https://yalantis.com/?utm_source=github)
 
@@ -24,9 +25,7 @@
 	}
 	```
 
-    ``` compile 'com.github.yalantis:ucrop:2.2.2' ``` - lightweight general solution 
-    
-    ``` compile 'com.github.yalantis:ucrop:2.2.2-native' ``` - get power of the native code to preserve image quality (+ about 1.5 MB to an apk size)
+   ``` compile 'com.github.kolyall:ucrop:2.2.3-native' ``` - get power of the native code to preserve image quality (+ about 1.5 MB to an apk size)
     
 2. Add UCropActivity into your AndroidManifest.xml
 
