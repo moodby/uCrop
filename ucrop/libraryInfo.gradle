@@ -8,7 +8,7 @@ ext {
 
     libraryName = 'ucrop'
 
-    libraryDescription = 'A wrapper for BaseMVPR on Android'
+    libraryDescription = 'A wrapper for ucrop on Android'
 
     siteUrl = 'https://github.com/Kolyall/ucrop'
     gitUrl = 'https://github.com/Kolyall/ucrop.git'
