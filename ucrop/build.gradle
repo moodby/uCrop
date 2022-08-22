@@ -1,15 +1,12 @@
 apply plugin: 'com.android.library'
-apply from: 'https://raw.githubusercontent.com/Kolyall/MavenPublish/master/appVersion.gradle'
+apply from: rootProject.file("scripts/appVersion.gradle")
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 31
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 28
-        versionCode appVersionCode
-        versionName appVersionName
+        minSdkVersion 24
+        targetSdkVersion 30
 
         vectorDrawables.useSupportLibrary = true
     }
@@ -23,46 +20,25 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
-    lintOptions {
-        quiet true
-        abortOnError false
-        ignoreWarnings true
-        disable 'InvalidPackage'           //Some libraries have issues with this.
-        disable 'OldTargetApi'             //Lint gives this warning but SDK 20 would be Android L Beta.
-        disable 'IconDensities'            //For testing purpose. This is safe to remove.
-        disable 'IconMissingDensityFolder' //For testing purpose. This is safe to remove.
-    }
 
     resourcePrefix 'ucrop_'
 
-    sourceSets.main {
-        jni.srcDirs = []
+    lint {
+        abortOnError false
+        disable 'InvalidPackage', 'OldTargetApi', 'IconDensities', 'IconMissingDensityFolder'
+        ignoreWarnings true
+        quiet true
     }
 
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
-}
-
-// Place it at the end of the file
-buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
-    }
+    implementation "androidx.appcompat:appcompat:1.4.1"
+    implementation "com.squareup.okhttp3:okhttp:4.9.2"
 }
 
 if (project.rootProject.file('local.properties').exists()) {
-    apply from: 'https://raw.githubusercontent.com/Kolyall/MavenPublish/master/libraryInfo.gradle'
-    apply from: 'https://raw.githubusercontent.com/Kolyall/MavenPublish/master/artifactsSetup.gradle'
-    apply from: 'https://raw.githubusercontent.com/Kolyall/MavenPublish/master/installSetup.gradle'
-    apply from: 'https://raw.githubusercontent.com/Kolyall/MavenPublish/master/bintrayGlobalSetup.gradle'
+    apply from: rootProject.file("scripts/libraryInfo.gradle")
+    apply from: rootProject.file("scripts/artifactsSetup.gradle")
+    apply from: rootProject.file("scripts/mavenNexus.gradle")
 }
-
-apply from: '../scripts/gitCommitMavenLocal.gradle'
